@@ -6,7 +6,7 @@
   <groupId>fr.usu.jinterop</groupId>
   <artifactId>j-interop-aspera-parent</artifactId>
   <packaging>pom</packaging>
-  <version>3.0.2</version>
+  <version>3.0.3-SNAPSHOT</version>
   <name>Pure Java - COM bridge - Parent</name>
   
   <modules>

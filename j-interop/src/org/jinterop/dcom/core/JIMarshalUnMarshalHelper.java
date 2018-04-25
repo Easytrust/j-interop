@@ -36,6 +36,7 @@ import org.jinterop.dcom.common.JIException;
 import org.jinterop.dcom.common.JIRuntimeException;
 import org.jinterop.dcom.common.JISystem;
 import org.jinterop.dcom.impls.automation.IJIDispatch;
+import org.jinterop.dcom.impls.wmi.JIWbemObjectArray;
 
 import rpc.core.UUID;
 
@@ -80,7 +81,7 @@ final class JIMarshalUnMarshalHelper {
 		mapOfSerializers.put(JIUnsignedInteger.class,new JIMarshalUnMarshalHelper.JIUnsignedIntImpl());
 		mapOfSerializers.put(JIDualStringArray.class,new JIMarshalUnMarshalHelper.JIDualStringArrayImpl());
 //		mapOfSerializers.put(IJIUnsigned.class,new JIMarshalUnMarshalHelper.JIUnsignedImpl());
-
+		mapOfSerializers.put(JIWbemObjectArray.class, new JIMarshalUnMarshalHelper.JIWbemObjectArrayImpl());
 	}
 
 	static byte[] readOctetArrayLE(NetworkDataRepresentation ndr, int length)
@@ -1430,4 +1431,27 @@ final class JIMarshalUnMarshalHelper {
 			return ((JIInterfacePointerBody)value).getLength();
 		}
 	}
+	
+    private static class JIWbemObjectArrayImpl implements SerializerDeserializer {
+		
+		public JIWbemObjectArrayImpl() {
+		}
+
+        @Override
+        public void serializeData(NetworkDataRepresentation ndr, Object value, List defferedPointers, int FLAG) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+
+        @Override
+        public Object deserializeData(NetworkDataRepresentation ndr, List defferedPointers, Map additionalData, int FLAG) {
+            JIWbemObjectArray objectArray = new JIWbemObjectArray();
+            objectArray.decode(ndr, ndr.getBuffer());
+            return objectArray;
+        }
+
+        @Override
+        public int getLengthInBytes(Object value, int FLAG) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+    }
 }
