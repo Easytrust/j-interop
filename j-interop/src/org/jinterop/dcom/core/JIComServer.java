@@ -725,9 +725,14 @@ public final class JIComServer extends Stub {
 				//issue faced by Igor.
 				nameBinding = binding;
 				index = binding.getNetworkAddress().indexOf("[");//this contains the port
-				if (binding.getNetworkAddress().substring(0,index).equalsIgnoreCase(targetAddress))
-				{
-					break;
+				String virtualName = binding.getNetworkAddress().substring(0,index);
+				try {
+					String ipFromVritual = InetAddress.getByName(virtualName).getHostAddress();
+					if (ipFromVritual.equalsIgnoreCase(targetAddress))
+					{
+						break;
+					}
+				} catch (UnknownHostException e) {
 				}
 			}
 			i++;
@@ -759,7 +764,13 @@ public final class JIComServer extends Stub {
 		{
 			address = ipAddr + address.substring(index);
 		}
-
+		
+		if (JISystem.isForceSameAddress()) {
+			index = address.indexOf("[");
+			String port = address.substring(index+1, address.length()-1);
+			address = targetAddress+"["+port+"]";
+		}
+		
 		//and currently only TCPIP is supported.
 		setAddress("ncacn_ip_tcp:" + address);
 		remunknownIPID = serverActivation.getIPID();

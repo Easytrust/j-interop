@@ -67,6 +67,7 @@ public final class JISystem {
 	private static JIComVersion comVersion = new JIComVersion();
 	private static boolean autoRegister = false;
 	private static boolean autoCollection = true;
+	private static boolean forceSameAddress = false;
 	private static final Logger logger = Logger.getLogger("org.jinterop");
 	private static final Map mapOfHostnamesVsIPs = new HashMap();
 	
@@ -372,6 +373,14 @@ public final class JISystem {
 		return autoRegister;
 	}
 	
+	public static boolean isForceSameAddress() {
+		return forceSameAddress;
+	}
+
+	public static void setForceSameAddress(boolean forceSameAdress) {
+		JISystem.forceSameAddress = forceSameAdress;
+	}
+
 	/**<p>Sometimes the DCOM runtime of Windows will not send a ping on time to the Framework. 
 	 * It is not very abnormal, since Windows can sometimes resort to mechanisms other than
 	 * DCOM to keep a reference count for the instances they imported. In case of j-Interop
