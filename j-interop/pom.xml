@@ -53,6 +53,9 @@
 							org.jinterop.dcom.impls.automation
 						</Export-Package>
 						<Import-Package>
+							javax.crypto,
+							javax.crypto.spec,
+							javax.net.ssl,
 							!ndr.*,
 							!rpc.*,
 							!jcifs.*,
