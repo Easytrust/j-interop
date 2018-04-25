@@ -1,25 +1,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>fr.usu.jinterop</groupId>
-    <artifactId>j-interop-aspera-parent</artifactId>
-    <version>3.0.2</version>
-  </parent>
-  
-  <artifactId>j-interop-aspera</artifactId>
-  <name>Pure Java - COM bridge</name>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.usu.jinterop</groupId>
+		<artifactId>j-interop-aspera-parent</artifactId>
+		<version>3.0.2</version>
+	</parent>
 
-  <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>j-interopdeps-aspera</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
+	<artifactId>j-interop-aspera</artifactId>
+	<packaging>bundle</packaging>
+	<name>Pure Java - COM bridge</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>j-interopdeps-aspera</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
   
-  <build>
+    <build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
 			<resource>
@@ -40,6 +41,8 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
+				<inherited>true</inherited>
+				<extensions>true</extensions>
 				<configuration>
 					<instructions>
 						<Export-Package>
