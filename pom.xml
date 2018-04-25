@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>fr.usu.jinterop</groupId>
+  <artifactId>j-interop-aspera-parent</artifactId>
+  <packaging>pom</packaging>
+  <version>3.0.2</version>
+  <name>Pure Java - COM bridge - Parent</name>
+  
+  <modules>
+    <module>j-interop</module>
+    <module>j-interopdeps</module>
+  </modules>
+
+  <scm>
+   	<connection>scm:git:https://github.com/Easytrust/j-interop.git</connection>
+	<developerConnection>scm:git:ssh://git@github.com/Easytrust/j-interop.git</developerConnection>
+	<url>https://github.com/Easytrust/j-interop</url>
+  </scm>
+
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+  </build>
+
+</project>
+
