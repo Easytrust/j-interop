@@ -82,7 +82,7 @@ under the License.
       <password>${env.REPO_SNAPSHOT_PASSWORD}</password>
     </server>
     <server>
-      <id>plugins.release</id>
+      <id>plugins.releases</id>
       <username>${env.REPO_SNAPSHOT_USERNAME}</username>
       <password>${env.REPO_SNAPSHOT_PASSWORD}</password>
     </server>
