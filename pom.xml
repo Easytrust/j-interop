@@ -32,6 +32,79 @@
 			</plugins>
 		</pluginManagement>
   	</build>
+	
+	<repositories>
+	  <repository>
+		<id>central</id>
+		<name>Artifactory Central</name>
+		<url>https://console.aspera-cloud.com/artifactory/libs-release</url>
+		<snapshots>
+		  <enabled>false</enabled>
+		</snapshots>
+		<releases>
+		  <enabled>true</enabled>
+		</releases>
+	  </repository>
+	  <repository>
+		<id>releases</id>
+		<name>Artifactory libs-release repository group</name>
+		<url>https://console.aspera-cloud.com/artifactory/libs-release-locale</url>
+		<snapshots>
+		  <enabled>false</enabled>
+		</snapshots>
+		<releases>
+		  <enabled>true</enabled>
+		</releases>
+	  </repository>
+	  <repository>
+		<id>snapshots</id>
+		<name>Artifactory libs-snapshot repository group</name>
+		<url>https://console.aspera-cloud.com/artifactory/libs-snapshot</url>
+		<snapshots>
+		  <enabled>true</enabled>
+		</snapshots>
+		<releases>
+		  <enabled>false</enabled>
+		</releases>
+      </repository>
+	</repositories>
+
+	<!-- Used when using maven's deploy goal -->
+	<distributionManagement>
+	  <repository>
+		<id>releases</id>
+		<name>Aspera USU France Internal Release Repository</name>
+		<url>https://console.aspera-cloud.com/artifactory/libs-release-local</url>
+	  </repository>
+	  <snapshotRepository>
+		<id>snapshots</id>
+		<name>Aspera USU France Internal Snapshots Repository</name>
+		<url>https://console.aspera-cloud.com/artifactory/libs-snapshot-local</url>
+	  </snapshotRepository>
+	</distributionManagement>
+
+	<pluginRepositories>
+	  <pluginRepository>
+		<id>plugins.releases</id>
+		<url>https://console.aspera-cloud.com/artifactory/plugins-release</url>
+		<snapshots>
+		  <enabled>false</enabled>
+		</snapshots>
+		<releases>
+		  <enabled>true</enabled>
+		</releases>
+	  </pluginRepository>
+	  <pluginRepository>
+		<id>plugins.snapshot</id>
+		<url>https://console.aspera-cloud.com/artifactory/plugins-snapshot</url>
+		<snapshots>
+		  <enabled>true</enabled>
+		</snapshots>
+		<releases>
+		  <enabled>false</enabled>
+		</releases>
+	  </pluginRepository>
+	</pluginRepositories>
 
 </project>
 
