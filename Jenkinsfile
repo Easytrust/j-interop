@@ -42,7 +42,7 @@ try
 				if (env.BRANCH_NAME.contains("feature/"))
 				{
 				    stage ('Build Branch')
-				    sh 'mvn -Pdev2 -V -B -s settings.xml clean install -Dmaven.repo.local=${PWD}/.repository'
+				    sh 'mvn -V -B -s settings.xml clean install -Dmaven.repo.local=${PWD}/.repository'
 				}
 
 				/*
@@ -54,7 +54,7 @@ try
 				if (env.BRANCH_NAME.contains("PR-"))
 				{
 				    stage ('Build PR + Test')
-				    sh 'mvn -Pdev2 -V -B -s settings.xml clean deploy -Dmaven.repo.local=${PWD}/.repository'
+				    sh 'mvn -V -B -s settings.xml clean deploy -Dmaven.repo.local=${PWD}/.repository'
 				}
 
 				/*
@@ -66,7 +66,7 @@ try
 				if (env.BRANCH_NAME == "develop" )
 				{
 				    stage ('Deploy Artefacts')
-				    sh 'mvn -Pdev2 -V -B -s settings.xml clean deploy -Dmaven.repo.local=${PWD}/.repository'
+				    sh 'mvn -V -B -s settings.xml clean deploy -Dmaven.repo.local=${PWD}/.repository'
 				}
 			}
 		}
